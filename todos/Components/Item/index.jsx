@@ -17,7 +17,7 @@ export default class Item extends Component {
         }
     }
 
-    handledelete = (id) => { 
+    handleDelete = (id) => {
         return () => {
             if(window.confirm("确定要删除吗")){
                 this.props.deleteTodo(id)
@@ -34,7 +34,7 @@ export default class Item extends Component {
                     <input onChange={this.handleCheck(id)} type="checkbox" checked={done} />
                     <span>{name}</span>
                 </label>
-                <button onClick={this.handledelete(id)} className="btn btn-danger" style={{ display: mouse ? 'block' : 'none' }}>删除</button>
+                <button onClick={this.handleDelete(id)} className="btn btn-danger" style={{ display: mouse ? 'block' : 'none' }}>删除</button>
             </li>
         )
     }
