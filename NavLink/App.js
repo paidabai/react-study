@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import {Route, Switch} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Header from "./Components/Header";
-import MyNavLink from "./Components/MyNavLink";
 
 
 export default class app extends Component {
@@ -18,18 +17,19 @@ export default class app extends Component {
                 <div className="row">
                     <div className="col-xs-2 col-xs-offset-2">
                         <div className="list-group">
-                            <MyNavLink to="/About">About</MyNavLink>
-                            <MyNavLink to="/Home">Home</MyNavLink>
+                            {/*原生html跳转页面*/}
+                            {/*<a className="list-group-item active" href="./about.html">About</a>
+                            <a className="list-group-item" href="./home.html">Home</a>*/}
+                            {/*需要添加class属性使用NavLink标签,activeClassName="添加的属性名",属性名为active可以以省略*/}
+                            <NavLink className="list-group-item" to="/about">about</NavLink>
+                            <NavLink className="list-group-item" to="/home">home</NavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
                         <div className="panel">
                             <div className="panel-body">
-                                {/*Switch当路由匹配到后不在向下匹配，提高匹配效率*/}
-                                <Switch>
-                                    <Route path="/about" component={About}></Route>
-                                    <Route path="/home" component={Home}></Route>
-                                </Switch>
+                                <Route path="/about" component={About}></Route>
+                                <Route path="/home" component={Home}></Route>
                             </div>
                         </div>
                     </div>
