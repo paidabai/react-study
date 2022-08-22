@@ -21,11 +21,8 @@ class Message extends Component {
                         Message.map((MsgObj) => {
                             return (
                                 <li key={MsgObj.id}>
-                                    {/*Link添加replace会替换栈里面最前面的地址*/}
-                                    <Link replace to={{
-                                        pathname: '/home/message/detail',
-                                        state: {id: MsgObj.id, title: MsgObj.title}
-                                    }}>{MsgObj.title}</Link>&nbsp;&nbsp;
+                                    <Link
+                                        to={`/Home/Message/Detail/?id=${MsgObj.id}&title=${MsgObj.title}`}>{MsgObj.title}</Link>&nbsp;&nbsp;
                                 </li>
                             )
                         })
