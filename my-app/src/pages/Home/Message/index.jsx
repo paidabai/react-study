@@ -12,6 +12,22 @@ class Message extends Component {
         ]
     }
 
+    pushShow = (id, title) => {
+        this.props.history.push('/home/message/detail',{id, title})
+    }
+
+    replaceShow = (id, title) => {
+        this.props.history.replace('/home/message/detail',{id, title})
+    }
+
+    forward = () => {
+        this.props.history.goForward()
+    }
+
+    back = () => {
+        this.props.history.goBack()
+    }
+
     render() {
         const {Message} = this.state
         return (
@@ -26,6 +42,8 @@ class Message extends Component {
                                         pathname: '/home/message/detail',
                                         state: {id: MsgObj.id, title: MsgObj.title}
                                     }}>{MsgObj.title}</Link>&nbsp;&nbsp;
+                                    <button onClick={() => {this.pushShow(MsgObj.id, MsgObj.title)}}>push查看</button>&nbsp;
+                                    <button onClick={() => {this.replaceShow(MsgObj.id, MsgObj.title)}}>replace查看</button>
                                 </li>
                             )
                         })
@@ -33,7 +51,10 @@ class Message extends Component {
                 </ul>
                 <hr/>
                 <Route path="/home/message/detail" component={Detail}/>
+                <button onClick={() => {this.forward()}}>前进</button>
+                <button onClick={() => {this.back()}}>后退</button>
             </div>
+
         );
     }
 }
