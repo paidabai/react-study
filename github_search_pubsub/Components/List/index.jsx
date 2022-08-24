@@ -11,7 +11,7 @@ export default class List extends Component {
     }
 
     componentDidMount() {
-        this.token = PubSub.subscribe('setState', (_, stateObj) => {
+            this.token = PubSub.subscribe('setState', (_, stateObj) => {
             this.setState(stateObj)
         })
     }
